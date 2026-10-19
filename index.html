@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loop Lab | Student Coders and Makers Club</title>
+  <meta name="description" content="Loop Lab is a student club where beginners build real projects together. See upcoming events, meet the team and join in two minutes.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23FFD23F'/%3E%3Cpath d='M20 8a12 12 0 1 0 12 12' fill='none' stroke='%2314123B' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='31' cy='9' r='4.5' fill='%23FF5A36'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#events">Skip to events</a>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Loop Lab, back to top">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 6a14 14 0 1 0 14 14" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="32" cy="8" r="5" fill="var(--orange)"/>
+      </svg>
+      <span>Loop Lab</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="site-nav" id="siteNav" aria-label="Main">
+      <a href="#events">Events</a>
+      <a href="#about">About</a>
+      <a href="#team">Team</a>
+      <a href="#faq">FAQ</a>
+      <a class="nav-join" href="#join">Join the club</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== Hero with live countdown ===== -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Ship something real this semester.</h1>
+        <p class="lead">Loop Lab is a student club where beginners and experts build projects together. No experience needed, just bring a laptop and something you want to make.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#join">Join the club</a>
+          <a class="btn btn-light" href="#events">See events</a>
+        </div>
+      </div>
+
+      <div class="countdown-card" aria-live="off">
+        <p class="cd-label">Next event</p>
+        <h2 class="cd-title" id="cdTitle">Loading…</h2>
+        <p class="cd-where" id="cdWhere"></p>
+        <div class="cd-grid" id="cdGrid" role="timer" aria-label="Time until the next event">
+          <div><span id="cdDays">0</span><small>days</small></div>
+          <div><span id="cdHours">0</span><small>hours</small></div>
+          <div><span id="cdMins">0</span><small>mins</small></div>
+          <div><span id="cdSecs">0</span><small>secs</small></div>
+        </div>
+        <a class="btn btn-dark btn-block" href="#events">Save my spot</a>
+      </div>
+    </section>
+
+    <!-- ===== Events: filter + RSVP ===== -->
+    <section class="section" id="events" aria-labelledby="eventsTitle">
+      <div class="section-head">
+        <h2 id="eventsTitle">What's happening</h2>
+        <p>Pick a type, then press RSVP on anything you want to come to. We will keep your seat.</p>
+      </div>
+
+      <div class="filters" id="filters" role="group" aria-label="Filter events by type">
+        <button class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="Workshop" aria-pressed="false">Workshops</button>
+        <button class="chip" data-filter="Talk" aria-pressed="false">Talks</button>
+        <button class="chip" data-filter="Hackathon" aria-pressed="false">Hackathons</button>
+      </div>
+
+      <p class="rsvp-count" id="rsvpCount" aria-live="polite">You haven't RSVP'd to anything yet.</p>
+
+      <ul class="event-list" id="eventList">
+        <!-- Events are created by script.js from the list at the top of that file -->
+      </ul>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section section-ink" id="about" aria-labelledby="aboutTitle">
+      <div class="section-head">
+        <h2 id="aboutTitle">What we do together</h2>
+      </div>
+      <div class="about-grid">
+        <article class="about-card card-orange">
+          <h3>Learn by building</h3>
+          <p>Every workshop ends with something that runs. You leave with working code, not just notes.</p>
+        </article>
+        <article class="about-card card-mint">
+          <h3>Project teams</h3>
+          <p>Teams of four build one project a semester, from a campus app to a robot. Mentors check in every week.</p>
+        </article>
+        <article class="about-card card-sun">
+          <h3>Real-world help</h3>
+          <p>Talks from alumni, mock interviews and portfolio reviews to get you ready for internships.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Team carousel ===== -->
+    <section class="section" id="team" aria-labelledby="teamTitle">
+      <div class="section-head">
+        <h2 id="teamTitle">Meet the team</h2>
+        <p>Students like you who run the club. Scroll or use the arrows.</p>
+      </div>
+
+      <div class="team-wrap">
+        <div class="team-track" id="teamTrack" tabindex="0" aria-label="Team members"></div>
+        <div class="team-controls">
+          <button class="icon-btn" id="teamPrev" aria-label="Previous team members">&#8592;</button>
+          <button class="icon-btn" id="teamNext" aria-label="Next team members">&#8594;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Join form ===== -->
+    <section class="section section-sun" id="join" aria-labelledby="joinTitle">
+      <div class="join-grid">
+        <div class="join-copy">
+          <h2 id="joinTitle">Join in two minutes</h2>
+          <ol class="steps">
+            <li>Fill in the form.</li>
+            <li>Get your membership card instantly.</li>
+            <li>Come to the next workshop.</li>
+          </ol>
+          <p>Membership is free for all students.</p>
+        </div>
+
+        <div class="join-panel">
+          <form id="joinForm" novalidate>
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+              <p class="error" id="nameError" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="email">College email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+              <p class="error" id="emailError" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="year">Year of study</label>
+              <select id="year" name="year" required>
+                <option value="">Choose your year</option>
+                <option>First year</option>
+                <option>Second year</option>
+                <option>Third year</option>
+                <option>Fourth year</option>
+                <option>Postgraduate</option>
+              </select>
+              <p class="error" id="yearError" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="interest">What do you want to build?</label>
+              <select id="interest" name="interest">
+                <option>Websites</option>
+                <option>Mobile apps</option>
+                <option>AI and data</option>
+                <option>Robots and electronics</option>
+                <option>Games</option>
+              </select>
+            </div>
+            <button class="btn btn-dark btn-block" type="submit">Get my membership card</button>
+          </form>
+
+          <div class="member-card" id="memberCard" hidden>
+            <p class="mc-label">Loop Lab member</p>
+            <h3 id="mcName"></h3>
+            <p id="mcMeta"></p>
+            <p class="mc-id" id="mcId"></p>
+            <button class="btn btn-light btn-small" id="mcAnother">Register someone else</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section" id="faq" aria-labelledby="faqTitle">
+      <div class="section-head">
+        <h2 id="faqTitle">Questions</h2>
+      </div>
+      <div class="faq" id="faqList">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="a1">Do I need to know how to code?</button>
+          <div class="faq-a" id="a1" hidden><p>No. About half of our members wrote their first line of code at a Loop Lab workshop. Every session has a beginner track.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="a2">Does it cost anything?</button>
+          <div class="faq-a" id="a2" hidden><p>Membership is free. Some hackathons include free food too.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="a3">How much time does it take?</button>
+          <div class="faq-a" id="a3" hidden><p>Come to as many or as few events as you like. Project teams meet for about two hours a week.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="a4">Do I need my own laptop?</button>
+          <div class="faq-a" id="a4" hidden><p>It helps, but we keep a few spare laptops for workshops. Ask us at the door.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year-now">2026</span> Loop Lab. A student project built with HTML, CSS and JavaScript. The club, events and people on this page are fictional.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
